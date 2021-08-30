@@ -20,7 +20,7 @@ function add (task) {
 
     //display message to user
     console.log(
-        chalk.green.bold('Task has been added successfully!')
+        chalk.green.bold(`Task ${ chalk.reset.bold.cyan( task ) } has been added successfully!`)
     )
 }
 

@@ -1,36 +1,22 @@
 #! /usr/bin/env node
 import remove from "./commands/remove";
 import markDone from './commands/markDone';
-import {Command, Option} from "commander";
+import {Command} from "commander";
 
 import list from "./commands/list";
-
-import boxen from "boxen";
-
-import chalk from "chalk";
 
 import add from "./commands/add";
 
 const program = new Command();
 
-const boxenOptions = {
-    padding: {
-        top: 0,
-        bottom: 0,
-        left: 5,
-        right: 5
-    },
-    margin: 1,
-    borderStyle: "round",
-    borderColor: "green",
-};
+/**
+* for dev : sudo npm install -g ./ to link scope to global
+* */
 
-program
-    .addHelpText('beforeAll', boxen(chalk.green('Welcome'), boxenOptions))
+program.showHelpAfterError('(add --help for additional information)');
 
 program
     .command('list')
-
     .description('List all the TODO tasks')
     .action(list)
 
@@ -41,15 +27,18 @@ program
 
 program
     .command('remove')
-    .arguments('[indexs...]')
+    .arguments('[tasks...]')
+    .usage("1 2 3")
     .option('-a, --all', 'Remove all task from list.')
     .description('remove a TODO task')
     .action(remove)
 
 program
     .command('mark-done')
+    .usage("1 2 3")
     .description('Mark commands done')
-    .option('-t, --tasks <tasks...>', 'The tasks to mark done. If not specified, all tasks will be marked done.')
+    .arguments('[tasks...]')
+    .option('-a, --all', 'Mark done all task from list.')
     .action(markDone)
 
 

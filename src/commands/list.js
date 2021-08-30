@@ -1,9 +1,24 @@
 
 const conf = new (require('conf'))()
 const chalk = require('chalk')
+const boxen = require("boxen");
+
+const boxenOptions = {
+    padding: {
+        top: 0,
+        bottom: 0,
+        left: 5,
+        right: 5
+    },
+    margin: 1,
+    borderStyle: "round",
+    borderColor: "green",
+};
 
 function list () {
     const todoList = conf.get('todo-list')
+
+    console.log(boxen(chalk.green('TODO LIST'), boxenOptions))
 
     if (todoList && todoList.length) {
         console.log(
