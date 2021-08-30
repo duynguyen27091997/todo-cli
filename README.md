@@ -9,6 +9,10 @@ Install the package globally on your machine:
 ```
 npm i -g @since1997/todo-cli
 ```
+or 
+```
+sudo npm i -g @since1997/todo-cli
+```
 
 ## Usage
 
@@ -44,7 +48,7 @@ Example:
 todos mark-done 1 2
 ```
 
-where `-a, --all` will mark down all TODO item in list
+where `-a, --all` will mark done all TODO item in list
 
 4. Delete TODO task
 
@@ -58,4 +62,4 @@ Example:
 todos remove 1 2
 ```
 
-where `-a, --all` will mark down all TODO item in list
+where `-a, --all` will remove all TODO item in list
